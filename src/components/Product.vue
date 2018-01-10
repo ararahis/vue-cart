@@ -4,11 +4,8 @@
       <img src="http://hpservicecenterschennai.in/images/hp_laptop_service_centers_in_guindy.png" alt="" />
       <h3>{{ prod.title }}</h3>
       <div class="offer">{{ prod.price | currency }}</div>
-      <div class="detail">
-        <p>Price {{ prod.text }}</p>
-        <img src="http://hpservicecenterschennai.in/images/hp_laptop_service_centers_in_guindy.png" alt="" />
-        <a href="#" class="btn btn-info" v-on:click.prevent="addToCart(prod.id)">Add To Cart</a>
-      </div>
+      <p>Price {{ prod.text }}</p>
+      <a href="#" class="btn btn-info" v-on:click.prevent="addToCart(prod.id)">Add To Cart</a>
     </div>
   </div>
 </template>
@@ -88,6 +85,4 @@
     background: #fff;height: 100%;width:100%;
 
   }
-
-  .my-list:hover .detail{top:0;}
 </style>

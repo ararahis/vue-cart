@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <a href="/"><img src="./assets/logo.png"></a>
     <a class="cart-informer" href="/#/cart">
       <img src="./assets/Cart-icon.png" />
       <span>{{ cart_count }}</span>
@@ -31,6 +30,7 @@
 <style>
   #app {
     text-align: center;
+    margin-top: 50px;
   }
   a.cart-informer {
     display: block;
