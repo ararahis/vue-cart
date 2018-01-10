@@ -45,8 +45,7 @@
     name: 'Cart',
     data () {
       return {
-        prod_cart: {},
-        sum: 0
+        prod_cart: {}
       }
     },
     created: function() {
@@ -57,6 +56,7 @@
       goHome: function () {
         this.$router.push("/")
       },
+      //create array of products
       fetchData: function () {
         let prods = PRODS
         let prod_cart = JSON.parse(localStorage.getItem('cart_list'))
@@ -69,6 +69,7 @@
         }
         return prod_cart_array
       },
+      //calculate sum of products in cart
       fetchDataSum: function () {
         let prods = PRODS
         let prod_cart = JSON.parse(localStorage.getItem('cart_list'))
@@ -95,8 +96,3 @@
     }
   }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-</style>

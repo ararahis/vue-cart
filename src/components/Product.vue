@@ -11,7 +11,6 @@
 </template>
 
 <script>
-
   export default {
     name: 'Product',
     props: ['prod','cart_count'],
@@ -31,16 +30,14 @@
       },
       addToCart (id) {
         let cart_list = localStorage.getItem('cart_list') ? JSON.parse(localStorage.getItem('cart_list')) : {}
-        cart_list[id] = (cart_list[id] ? cart_list[id] : 0) + 1;
+        cart_list[id] = (cart_list[id] ? cart_list[id] : 0) + 1
         localStorage.setItem('cart_list', JSON.stringify(cart_list))
-
         this.updateCartCount()
       }
     }
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   img{max-width:100%;}
   *{transition: all .5s ease;-moz-transition: all .5s ease;-webkit-transition: all .5s ease}
@@ -76,13 +73,5 @@
     padding-top: 5px;
     font-weight: 600;
     color: #000;
-  }
-  .detail {
-    position: absolute;
-    top: -100%;
-    left: 0;
-    text-align: center;
-    background: #fff;height: 100%;width:100%;
-
   }
 </style>

@@ -9,8 +9,6 @@
 </template>
 
 <script>
-  var ttt = 'ggg'
-
   export default {
     name: 'app',
     data () {

@@ -20,7 +20,6 @@
 </template>
 
 <script>
-
   export default {
     name: 'ProductCart',
     props: ['prod','cart_count'],
@@ -40,7 +39,7 @@
       },
       changeQtyProduct (id,qty) {
         let cart_list = JSON.parse(localStorage.getItem('cart_list'))
-        cart_list[id] = parseInt(qty);
+        cart_list[id] = parseInt(qty)
         localStorage.setItem('cart_list', JSON.stringify(cart_list))
 
         this.updateCartCount()
@@ -48,7 +47,7 @@
       },
       deleteFromCart (id) {
         let cart_list = JSON.parse(localStorage.getItem('cart_list'))
-        delete cart_list[id];
+        delete cart_list[id]
         localStorage.setItem('cart_list', JSON.stringify(cart_list))
 
         this.updateCartCount()
@@ -57,52 +56,3 @@
     }
   }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-  img{max-width:100%;}
-  *{transition: all .5s ease;-moz-transition: all .5s ease;-webkit-transition: all .5s ease}
-  .my-list {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #f5efef;
-    float: left;
-    margin: 15px 0;
-    border-radius: 5px;
-    box-shadow: 2px 3px 0px #e4d8d8;
-    position:relative;
-    overflow:hidden;
-  }
-  .my-list h3{
-    text-align: left;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 21px;
-    margin: 0px;
-    padding: 0px;
-    border-bottom: 1px solid #ccc4c4;
-    margin-bottom: 5px;
-    padding-bottom: 5px;
-  }
-  .my-list span{float:left;font-weight: bold;}
-  .my-list span:last-child{float:right;}
-  .my-list .offer{
-    width: 100%;
-    float: left;
-    margin: 5px 0;
-    margin-top: 5px;
-    padding-top: 5px;
-    font-weight: 600;
-    color: #000;
-  }
-  .detail {
-    position: absolute;
-    top: -100%;
-    left: 0;
-    text-align: center;
-    background: #fff;height: 100%;width:100%;
-
-  }
-
-  .my-list:hover .detail{top:0;}
-</style>
