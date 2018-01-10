@@ -20,6 +20,7 @@
 </template>
 
 <script>
+
   export default {
     name: 'ProductCart',
     props: ['prod','cart_count'],

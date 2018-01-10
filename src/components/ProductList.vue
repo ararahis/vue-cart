@@ -8,15 +8,20 @@
 
 <script>
   import Product from './Product'
+  import {PRODS} from '../params.js'
+  console.log('produ',this.products_arr1)
   export default {
     name: 'ProductList',
     data () {
       return {
-        products: JSON.parse(localStorage.getItem('products'))
+        products: PRODS
       }
     },
     components: {
       Product
+    },
+    mounted: function () {
+      console.log('this.$root',this.$root.products_arr1)
     }
   }
 </script>

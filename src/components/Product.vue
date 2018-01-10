@@ -1,16 +1,16 @@
 <template>
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="my-list">
-          <img src="http://hpservicecenterschennai.in/images/hp_laptop_service_centers_in_guindy.png" alt="" />
-          <h3>{{ prod.title }}</h3>
-          <div class="offer">{{ prod.price | currency }}</div>
-          <div class="detail">
-            <p>Price {{ prod.text }}</p>
-            <img src="http://hpservicecenterschennai.in/images/hp_laptop_service_centers_in_guindy.png" alt="" />
-            <a href="#" class="btn btn-info" v-on:click.prevent="addToCart(prod.id)">Add To Cart</a>
-          </div>
-        </div>
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div class="my-list">
+      <img src="http://hpservicecenterschennai.in/images/hp_laptop_service_centers_in_guindy.png" alt="" />
+      <h3>{{ prod.title }}</h3>
+      <div class="offer">{{ prod.price | currency }}</div>
+      <div class="detail">
+        <p>Price {{ prod.text }}</p>
+        <img src="http://hpservicecenterschennai.in/images/hp_laptop_service_centers_in_guindy.png" alt="" />
+        <a href="#" class="btn btn-info" v-on:click.prevent="addToCart(prod.id)">Add To Cart</a>
       </div>
+    </div>
+  </div>
 </template>
 
 <script>

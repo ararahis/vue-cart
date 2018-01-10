@@ -39,7 +39,8 @@
 </template>
 
 <script>
-  import ProductCart from "./ProductCart";
+  import ProductCart from "./ProductCart"
+  import {PRODS} from '../params.js'
   export default {
     name: 'Cart',
     data () {
@@ -57,7 +58,7 @@
         this.$router.push("/")
       },
       fetchData: function () {
-        let prods = JSON.parse(localStorage.getItem('products'))
+        let prods = PRODS
         let prod_cart = JSON.parse(localStorage.getItem('cart_list'))
         let prod_cart_array = {}
         for (let key in prods) {
@@ -69,7 +70,7 @@
         return prod_cart_array
       },
       fetchDataSum: function () {
-        let prods = JSON.parse(localStorage.getItem('products'))
+        let prods = PRODS
         let prod_cart = JSON.parse(localStorage.getItem('cart_list'))
         let sum = 0
         for (let key in prods) {
