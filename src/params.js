@@ -8,3 +8,7 @@ export const PRODS =  [
   {id: 7, title: 'Product7', text: 'Some text to describe product7', price: 900},
   {id: 8, title: 'Product8', text: 'Some text to describe product8', price: 1000}
 ]
+
+let cart_list = JSON.parse(localStorage.getItem('cart_list'));
+let cart_count = localStorage.getItem('cart_count');
+export const CART_ITEMS = {'cart_list': cart_list, 'cart_count': cart_count}

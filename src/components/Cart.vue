@@ -40,7 +40,7 @@
 
 <script>
   import ProductCart from "./ProductCart"
-  import {PRODS} from '../params.js'
+  import {PRODS,CART_ITEMS} from '../params.js'
   export default {
     name: 'Cart',
     data () {
@@ -51,15 +51,23 @@
     created: function() {
       this.prod_cart = this.fetchData()
       this.sum = this.fetchDataSum()
+      window.addEventListener('beforeunload', this.updateLocalStorage)
+    },
+    beforeDestroy: function () {
+      this.updateLocalStorage
     },
     methods: {
+      updateLocalStorage: function () {
+        localStorage.setItem('cart_count', CART_ITEMS.cart_count)
+        localStorage.setItem('cart_list', JSON.stringify(CART_ITEMS.cart_list))
+      },
       goHome: function () {
         this.$router.push("/")
       },
       //create array of products
       fetchData: function () {
         let prods = PRODS
-        let prod_cart = JSON.parse(localStorage.getItem('cart_list'))
+        let prod_cart = CART_ITEMS.cart_list
         let prod_cart_array = {}
         for (let key in prods) {
           if(prod_cart[prods[key]['id']])
@@ -72,7 +80,7 @@
       //calculate sum of products in cart
       fetchDataSum: function () {
         let prods = PRODS
-        let prod_cart = JSON.parse(localStorage.getItem('cart_list'))
+        let prod_cart = CART_ITEMS.cart_list
         let sum = 0
         for (let key in prods) {
           if(prod_cart[prods[key]['id']])

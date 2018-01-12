@@ -8,7 +8,7 @@
 
 <script>
   import Product from './Product'
-  import {PRODS} from '../params.js'
+  import {PRODS,CART_ITEMS} from '../params.js'
 
   export default {
     name: 'ProductList',
@@ -19,6 +19,18 @@
     },
     components: {
       Product
+    },
+    created: function() {
+      window.addEventListener('beforeunload', this.updateLocalStorage)
+    },
+    beforeDestroy: function () {
+      this.updateLocalStorage
+    },
+    methods: {
+      updateLocalStorage: function () {
+        localStorage.setItem('cart_count', CART_ITEMS.cart_count)
+        localStorage.setItem('cart_list', JSON.stringify(CART_ITEMS.cart_list))
+      }
     }
   }
 </script>

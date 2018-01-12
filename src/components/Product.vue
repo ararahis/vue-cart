@@ -11,6 +11,7 @@
 </template>
 
 <script>
+  import {PRODS,CART_ITEMS} from '../params.js'
   export default {
     name: 'Product',
     props: ['prod','cart_count'],
@@ -22,16 +23,16 @@
     },
     methods: {
       updateCartCount () {
-        let cart_list = localStorage.getItem('cart_list') ? JSON.parse(localStorage.getItem('cart_list')) : {}
+        let cart_list = CART_ITEMS.cart_list ? CART_ITEMS.cart_list : {}
         let cart_count = 0
         for (let key in cart_list) cart_count = cart_count + cart_list[key]
-        localStorage.setItem('cart_count', cart_count)
+        CART_ITEMS.cart_count = cart_count
         this.$root.$emit('cart_count', cart_count)
       },
       addToCart (id) {
-        let cart_list = localStorage.getItem('cart_list') ? JSON.parse(localStorage.getItem('cart_list')) : {}
+        let cart_list = CART_ITEMS.cart_list ? CART_ITEMS.cart_list : {}
         cart_list[id] = (cart_list[id] ? cart_list[id] : 0) + 1
-        localStorage.setItem('cart_list', JSON.stringify(cart_list))
+        CART_ITEMS.cart_list = cart_list
         this.updateCartCount()
       }
     }
@@ -69,7 +70,6 @@
     width: 100%;
     float: left;
     margin: 5px 0;
-    margin-top: 5px;
     padding-top: 5px;
     font-weight: 600;
     color: #000;

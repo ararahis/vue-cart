@@ -20,6 +20,8 @@
 </template>
 
 <script>
+  import {CART_ITEMS} from '../params.js'
+
   export default {
     name: 'ProductCart',
     props: ['prod','cart_count'],
@@ -31,24 +33,24 @@
     },
     methods: {
       updateCartCount () {
-        let cart_list = JSON.parse(localStorage.getItem('cart_list'))
+        let cart_list = CART_ITEMS.cart_list
         let cart_count = 0
         for (let key in cart_list) cart_count = cart_count + cart_list[key]
-        localStorage.setItem('cart_count', cart_count)
+        CART_ITEMS.cart_count = cart_count
         this.$root.$emit('cart_count', cart_count)
       },
       changeQtyProduct (id,qty) {
-        let cart_list = JSON.parse(localStorage.getItem('cart_list'))
+        let cart_list = CART_ITEMS.cart_list
         cart_list[id] = parseInt(qty)
-        localStorage.setItem('cart_list', JSON.stringify(cart_list))
+        CART_ITEMS.cart_list = cart_list
 
         this.updateCartCount()
         this.$emit('update-cart')
       },
       deleteFromCart (id) {
-        let cart_list = JSON.parse(localStorage.getItem('cart_list'))
+        let cart_list = CART_ITEMS.cart_list
         delete cart_list[id]
-        localStorage.setItem('cart_list', JSON.stringify(cart_list))
+        CART_ITEMS.cart_list = cart_list
 
         this.updateCartCount()
         this.$emit('delete-from-cart', id)
